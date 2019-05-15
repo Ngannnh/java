@@ -1,19 +1,21 @@
 package com.store.snacks.java.sweet.models;
 
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author ngan nnh on 5/13/2019
  * @project sweet
  */
 
-@Document(collection = "invoice_details")
+@Entity
 public class InvoiceDetails {
-    @Indexed private String id;
-    @DBRef private Product product;
+    @Id
+    private String id;
+
+    @ManyToOne
+    private Product product;
     private int quantity;
 
     public String getId() {

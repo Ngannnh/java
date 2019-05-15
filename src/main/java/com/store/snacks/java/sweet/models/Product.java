@@ -1,13 +1,14 @@
 package com.store.snacks.java.sweet.models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
 
 /**
  * @author ngan nnh on 5/13/2019
  * @project sweet
  */
-@Document(collection = "product")
+@Entity
 public class Product {
     @Id private String id;
     private String name;

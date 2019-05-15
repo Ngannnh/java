@@ -1,20 +1,20 @@
 package com.store.snacks.java.sweet.models;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.IndexDirection;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * @author ngan nnh on 5/13/2019
  * @project sweet
  */
-@Document(collection = "user")
+@Entity
 public class User {
     @Id private String id;
-    @DBRef private Role role;
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true) private String user_name;
+    @ManyToOne
+    private Role role;
+    private String user_name;
     private String password;
     private String full_name;
 
